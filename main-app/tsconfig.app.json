@@ -21,7 +21,8 @@
     "noUnusedParameters": true,
     "erasableSyntaxOnly": true,
     "noFallthroughCasesInSwitch": true,
-    "noUncheckedSideEffectImports": true
+    "noUncheckedSideEffectImports": true,
+    "types": ["vitest/globals", "@testing-library/dom"]
   },
-  "include": ["src"]
+  "include": ["src", "tests"] // also add "tests" to the include
 }

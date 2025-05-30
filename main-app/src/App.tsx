@@ -71,7 +71,7 @@ export const App: React.FC = () => {
         />
         <TodoListScreen />
       </div>
-      <h1>{user?.email}</h1>
+      {/* <h1>{user?.email}</h1> */}
     </>
   )
 }

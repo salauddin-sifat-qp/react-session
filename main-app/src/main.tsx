@@ -5,6 +5,7 @@ import ReactDom from 'react-dom/client'
 import '@npm-questionpro/wick-ui-icon/dist/wu-icon.css'
 import '@npm-questionpro/wick-ui-lib/dist/style.css'
 import './index.css'
+import {AppProviders} from './providers/AppProviders.tsx'
 
 async function enableMocking(): Promise<void> {
   if (!IS_MOCK_ENV) {
@@ -29,8 +30,10 @@ async function enableMocking(): Promise<void> {
 
 enableMocking().then(() => {
   ReactDom.createRoot(document.getElementById('root')!).render(
-    <React.StrictMode>
-      <App />
-    </React.StrictMode>,
+    <AppProviders>
+      <React.StrictMode>
+        <App />
+      </React.StrictMode>
+    </AppProviders>,
   )
 })
