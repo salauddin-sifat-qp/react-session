@@ -76,6 +76,7 @@ export const TodoListScreen: React.FC<IProps> = () => {
         <WuModalHeader>Create Todo</WuModalHeader>
         <WuModalContent>
           <WuFormGroup
+            className="wu-form-group"
             Input={
               <WuInput
                 type="text"
@@ -91,7 +92,6 @@ export const TodoListScreen: React.FC<IProps> = () => {
               showError ? <WuInputError message="Please enter a title" /> : null
             }
           ></WuFormGroup>
-          <div style={{height: '20px'}}></div>
         </WuModalContent>
         <WuModalFooter>
           <WuModalClose>Close</WuModalClose>
