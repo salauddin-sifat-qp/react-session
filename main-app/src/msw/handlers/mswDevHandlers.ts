@@ -3,6 +3,7 @@ import {userMockDb} from '../mockDbs/userMockDb'
 import {API_BASE_URL, IS_MOCK_ENV} from '../../constants/appConstants'
 import type {IUser} from '../../types/IUser'
 import type {ITodo} from '../../types/ITodo'
+import {todoMockDb} from '../mockDbs/todoMockDb'
 
 const sendResponse = <T>(res: T): HttpResponse<{data: T}> => {
   return HttpResponse.json({data: res})
@@ -21,6 +22,11 @@ export const mswDevHandlers = [
   http.get(`${API_BASE_URL}user`, () => {
     const user = userMockDb.getUser()
     return sendResponse<IUser>(user)
+  }),
+
+  http.get(`${API_BASE_URL}todos`, async () => {
+    const todos: ITodo[] = todoMockDb.getTodos()
+    return sendResponse<ITodo[]>(todos)
   }),
   http.post(`${API_BASE_URL}todos`, async ({request}) => {
     await delayedResponse()

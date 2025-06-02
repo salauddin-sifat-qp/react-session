@@ -48,7 +48,14 @@ export const TodoListScreen: React.FC<IProps> = () => {
       setShowError(false)
     }
   }
-
+  React.useEffect(() => {
+    const getData = async (): Promise<void> => {
+      const res = await fetch('/api/todos')
+      const data = await res.json()
+      setTodos([...data.data])
+    }
+    getData()
+  }, [])
   return (
     <div>
       <WuHeading>Welcome to the Todo App</WuHeading>

@@ -9,6 +9,7 @@ describe('TodoListScreen', () => {
 
     screen.getByText('Welcome to the Todo App')
     const createTodoButton = screen.getByRole('button', {name: /create todo/i})
+    await screen.findByText(/sample todo/i)
 
     await userEvent.click(createTodoButton)
 
