@@ -26,6 +26,7 @@ export const mswDevHandlers = [
 
   http.get(`${API_BASE_URL}todos`, async () => {
     const todos: ITodo[] = todoMockDb.getTodos()
+    await delayedResponse(1500)
     return sendResponse<ITodo[]>(todos)
   }),
   http.post(`${API_BASE_URL}todos`, async ({request}) => {
